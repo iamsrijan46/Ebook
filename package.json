@@ -14,9 +14,13 @@
   "author": "Srijan Mani Tripathi <srijanmanitripathi2002@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^5.6.2",
+    "@eslint/js": "^9.10.0",
     "@types/node": "^22.5.4",
+    "eslint": "^9.10.0",
+    "globals": "^15.9.0",
     "nodemon": "^3.1.4",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.5.0"
   }
 }

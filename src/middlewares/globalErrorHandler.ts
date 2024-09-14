@@ -1,12 +1,12 @@
 import express, { NextFunction, Request, Response } from "express"
 import createHttpError, { HttpError } from "http-errors";
-import {config} from "../config/config"
+import {config} from "../config/config";
 
 const globalErrorHandler = (
     err: HttpError,
     req: Request,
     res: Response,
-    next: NextFunction 
+    next: NextFunction
 ) => {
     
     const statusCode = err.statusCode || 500;

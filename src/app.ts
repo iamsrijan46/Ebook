@@ -3,6 +3,7 @@ import globalErrorHandler from "./middlewares/globalErrorHandler";
 import userRouter from "./user/userRouters";
 
 const app = express();
+app.use(express.json());
 
 app.use(globalErrorHandler);
 app.use("/api/users", userRouter);

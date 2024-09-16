@@ -26,6 +26,7 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
       return next(error);
     }
   } catch (err) {
+    console.log(err);
     return next(createHttpError(500, "Error while getting user"));
   }
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -40,6 +41,8 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
       password: hashedPassword,
     });
   } catch (err) {
+
+    console.log(err);
     return next(createHttpError(500, " Error while creating user."));
   }
 
@@ -50,10 +53,15 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
       expiresIn: "7d",
     });
 
-    res.json({ accessToken: token });
+    // Response
+
+    res.status(201).json({ accessToken: token });
   } catch (err) {
+    console.log(err);
     return next(createHttpError(500, "Error while signin JWT token"));
   }
 };
 
-export { createUser };
+
+
+export { createUser, loginUser };

@@ -20,6 +20,7 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
 
   try {
     const user = await userModel.findOne({ email });
+    console.log(user);
 
     if (user) {
       const error = createHttpError(400, "User already exist");
@@ -56,6 +57,7 @@ const createUser = async (req: Request, res: Response, next: NextFunction) => {
     // Response
 
     res.status(201).json({ accessToken: token });
+    
   } catch (err) {
     console.log(err);
     return next(createHttpError(500, "Error while signin JWT token"));
